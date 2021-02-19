@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.kanulp.assignment1_intent.AllCountriesFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_all_countries">
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.kanulp.assignment1_intent.PreferredCountriesFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_preffered_country">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.kanulp.assignment1_intent.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/browserActivity"
+        android:name="com.kanulp.assignment1_intent.BrowserActivity"
+        android:label="activity_browser"
+        tools:layout="@layout/activity_browser" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.kanulp.assignment1_intent.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_browserActivity"
+            app:destination="@id/browserActivity" />
+        <action
+            android:id="@+id/action_startFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+</navigation>
